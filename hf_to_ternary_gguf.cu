@@ -192,7 +192,7 @@ options parse_args(int argc, char ** argv) {
         opt.converter_script = (fs::path(opt.llama_cpp_dir) / "convert_hf_to_gguf.py").string();
     }
     if (opt.ternary_converter.empty()) {
-        opt.ternary_converter = "/home/ckti/github/PT-QUantize/pt-quant/ptq_ternary_gguf";
+        opt.ternary_converter = "ptq_ternary_gguf";
     }
     if (opt.intermediate_gguf.empty()) {
         opt.intermediate_gguf = default_intermediate_path(opt.output_gguf);

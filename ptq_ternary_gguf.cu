@@ -295,7 +295,7 @@ bool default_excluded(const tensor_info & tensor, const options & opt) {
     if (!opt.quantize_token_embd && has_substr(tensor.name, "token_embd")) {
         return true;
     }
-    if (!opt.quantize_output && (tensor.name == "output.weight" || has_substr(tensor.name, "output"))) {
+    if (!opt.quantize_output && tensor.name == "output.weight") {
         return true;
     }
     return false;
@@ -732,10 +732,6 @@ void quantize_tensor_cuda(
 }
 
 void write_output(const gguf_model & model, const options & opt) {
-    if (opt.input_path == opt.output_path) {
-        throw std::runtime_error("refusing to overwrite input GGUF");
-    }
-
     std::ifstream in(opt.input_path, std::ios::binary);
     if (!in) {
         throw std::runtime_error("failed to reopen input: " + opt.input_path);
