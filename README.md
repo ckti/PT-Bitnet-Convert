@@ -1,6 +1,11 @@
 # PT-BitNet-style GGUF ternary converter
 
-This directory contains a standalone CUDA/NVCC converter for local GGUF files. It reads a GGUF model, preserves metadata and tensor order, and converts eligible dense weight tensors to llama.cpp-compatible `TQ1_0` ternary tensor blocks.
+This reposotory contains a standalone CUDA/NVCC converter for local GGUF files. It reads a GGUF model, preserves metadata and tensor order, and converts eligible dense weight tensors to llama.cpp-compatible `TQ1_0` ternary tensor blocks.  THis is based on the Mathematics and Algorithims found at 
+
+PT-BitNet: Scaling up the 1-Bit large language model with post-training quantization,
+Neural Networks,
+Volume 191,2025,107855,ISSN 0893-6080,
+https://doi.org/10.1016/j.neunet.2025.107855
 
 ## What is implemented
 
